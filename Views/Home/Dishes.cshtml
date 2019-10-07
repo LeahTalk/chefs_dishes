@@ -1,0 +1,29 @@
+@model List<Dish>
+<div class = 'pageHeader'>  
+    <a href = '/'>Chefs</a>
+    <p style = 'display:inline'> | Dishes</p>
+    <a href = '/dishes/new' style = 'margin-left: 200px'>Add a Dish!</a>
+</div>
+<p>Take a look at our tasty dishes!</p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Chef</th>
+      <th scope="col">Tastiness</th>
+      <th scope="col">Calories</th>
+    </tr>
+  </thead>
+  <tbody>
+      @{
+          foreach(Dish dish in Model) {
+            <tr>
+                <td>@dish.Name</td>
+                <td>@dish.Creator.FirstName @dish.Creator.LastName</td>
+                <td>@dish.Tastiness</td>
+                <td>@dish.Calories</td>
+            </tr>
+          }
+      }
+  </tbody>
+</table>

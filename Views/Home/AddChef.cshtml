@@ -1,0 +1,24 @@
+@model ChefsAndDishes.Models.Chef
+<div class = 'pageHeader'>  
+    <h1>Add a Chef!</h1>
+</div>
+<form asp-action="CreateChef" asp-controller="Home" method="post">
+    <div class = 'formSection'>
+        <span asp-validation-for="FirstName"></span>
+        <p></p>
+        <label asp-for="FirstName"></label>
+        <input type="text" asp-for="FirstName">
+        <p></p>
+        <span asp-validation-for="LastName"></span>
+        <p></p>
+        <label asp-for="LastName"></label>
+        <input type="text" asp-for="LastName">
+    </div>
+    <div class = 'formSection'>
+        <span asp-validation-for="Birthday"></span>
+        <p></p>
+        <label asp-for="Birthday"></label>
+        <input type = 'date' asp-for="Birthday">
+        <input type="submit" value="Submit" class = 'btn btn-primary'>
+    </div>
+</form>

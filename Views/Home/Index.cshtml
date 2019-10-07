@@ -1,0 +1,31 @@
+﻿@model List<Chef>
+<div class = 'pageHeader'>  
+    <p style = 'display:inline'>Chefs | </p>
+    <a href = '/dishes'>Dishes</a>
+    <a href = '/new' style = 'margin-left: 200px'>Add a Chef!</a>
+</div>
+<p>Check out our roster of chefs!</p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col"># of Dishes</th>
+    </tr>
+  </thead>
+  <tbody>
+      @{
+          foreach(Chef chef in Model) {
+            DateTime date = DateTime.Parse(@chef.Birthday);
+            int age = (DateTime.Now.Year - date.Year - 1) +
+                (((DateTime.Now.Month > date.Month) ||
+                ((DateTime.Now.Month == date.Month) && (DateTime.Now.Day >= date.Day))) ? 1 : 0);
+            <tr>
+                <td>@chef.FirstName @chef.LastName</td>
+                <td>@age</td>
+                <td>@chef.CreatedDishes.Count</td>
+            </tr>
+          }
+      }
+  </tbody>
+</table>
